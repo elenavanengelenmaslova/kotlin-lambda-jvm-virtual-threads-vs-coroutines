@@ -15,7 +15,7 @@ application {
 }
 
 tasks.named("run") {
-    dependsOn(":products:packageDistribution")
+    dependsOn(":products-coroutines:packageDistribution", ":products-virtual-threads:packageDistribution")
 }
 repositories {
     mavenCentral()

@@ -17,7 +17,7 @@ class InfrastructureJvmCoroutinesArm64Stack(scope: Construct, id: String, props:
             .description("Kotlin Lambda JVM ARM64 Example")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
             .runtime(Runtime.JAVA_21)
-            .code(Code.fromAsset("../build/dist/function.zip"))
+            .code(Code.fromAsset("../build/dist/function-coroutines.zip"))
             .architecture(Architecture.ARM_64)
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)

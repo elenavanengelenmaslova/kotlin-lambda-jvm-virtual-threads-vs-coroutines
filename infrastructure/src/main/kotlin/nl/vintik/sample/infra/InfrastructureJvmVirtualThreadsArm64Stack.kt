@@ -17,7 +17,7 @@ class InfrastructureJvmVirtualThreadsArm64Stack(scope: Construct, id: String, pr
             .description("Kotlin Lambda JVM C1 ARM64 Example")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
             .runtime(Runtime.JAVA_21)
-            .code(Code.fromAsset("../build/dist/function.zip"))
+            .code(Code.fromAsset("../build/dist/function-virtual-threads.zip"))
             .architecture(Architecture.ARM_64)
             .environment(
                 mapOf(
