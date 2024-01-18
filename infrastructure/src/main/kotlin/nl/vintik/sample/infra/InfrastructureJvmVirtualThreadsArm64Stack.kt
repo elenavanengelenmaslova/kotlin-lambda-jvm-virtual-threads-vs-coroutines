@@ -12,18 +12,13 @@ import software.constructs.Construct
 class InfrastructureJvmVirtualThreadsArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
-        val functionId = "lambdaJvmC1Arm64"
+        val functionId = "lambdaJvmArm64VirtualThreads"
         val function = Function.Builder.create(this, functionId)
-            .description("Kotlin Lambda JVM C1 ARM64 Example")
+            .description("Kotlin Lambda JVM ARM64 Virtual Threads")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
             .runtime(Runtime.JAVA_21)
             .code(Code.fromAsset("../build/dist/function-virtual-threads.zip"))
             .architecture(Architecture.ARM_64)
-            .environment(
-                mapOf(
-                    "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-                )
-            )
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)
             .timeout(Duration.seconds(120))

@@ -12,9 +12,9 @@ import software.constructs.Construct
 class InfrastructureJvmCoroutinesArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
-        val functionId = "lambdaJvmArm64"
+        val functionId = "lambdaJvmArm64Coroutines"
         val function = Function.Builder.create(this, functionId)
-            .description("Kotlin Lambda JVM ARM64 Example")
+            .description("Kotlin Lambda JVM ARM64 Coroutines")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
             .runtime(Runtime.JAVA_21)
             .code(Code.fromAsset("../build/dist/function-coroutines.zip"))
