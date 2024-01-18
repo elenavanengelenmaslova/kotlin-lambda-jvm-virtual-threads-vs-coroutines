@@ -11,7 +11,7 @@ import software.constructs.Construct
 
 class InfrastructureJvmVirtualThreadsArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
+        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-VirtualThreadsVsCoroutinesTableArn"))
         val functionId = "lambdaJvmArm64VirtualThreads"
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda JVM ARM64 Virtual Threads")
