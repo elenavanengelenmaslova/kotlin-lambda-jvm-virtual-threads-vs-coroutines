@@ -83,7 +83,7 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/infrastructure
           npm install -g aws-cdk
-          cdk deploy -vv --require-approval never Kotlin-Lambda-JVM-table --exclusively
+          cdk deploy -vv --require-approval never Kotlin-Lambda-JVM-VirtualThreadsVsCoroutines-table --exclusively
 
   deploy-app:
     runs-on: ubuntu-latest
@@ -93,28 +93,12 @@ jobs:
         config:
           [
             {
-              component-name: "Kotlin Lambda JVM ",
-              stack-name: "Kotlin-Lambda-JVM-example",
+              component-name: "Kotlin Lambda JVM Arm64 Coroutines",
+              stack-name: "JvmCoroutinesArm64",
             },
             {
-              component-name: "Kotlin Lambda JVM Arm64",
-              stack-name: "Kotlin-Lambda-JVM-Arm64-example",
-            },
-            {
-              component-name: "Kotlin Lambda JVM C1",
-              stack-name: "Kotlin-Lambda-JVM-C1-example",
-            },
-            {
-              component-name: "Kotlin Lambda JVM C1 Arm64",
-              stack-name: "Kotlin-Lambda-JVM-C1-Arm64-example",
-            },
-            {
-              component-name: "Kotlin Lambda JVM SnapStart",
-              stack-name: "Kotlin-Lambda-JVM-SnapStart-example",
-            },
-            {
-              component-name: "Kotlin Lambda JVM C1 SnapStart",
-              stack-name: "Kotlin-Lambda-JVM-C1-SnapStart-example",
+              component-name: "Kotlin Lambda JVM Arm64 Virtual Threads",
+              stack-name: "JvmVirtualThreadsArm64",
             },
           ]
     name: ${{ matrix.config.component-name }} deployment
