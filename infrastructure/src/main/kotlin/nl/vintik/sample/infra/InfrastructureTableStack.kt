@@ -13,7 +13,7 @@ import software.constructs.Construct
 
 class InfrastructureTableStack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val tableName = "Products-JVM-Example"
+        val tableName = "Products-JVM-VirtualThreadsVsCoroutines"
         val productsTable = Table.Builder.create(this, tableName)
             .tableName(tableName)
             .partitionKey(

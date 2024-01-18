@@ -7,14 +7,16 @@
  * in the user manual at https://docs.gradle.org/7.5.1/userguide/multi_project_builds.html
  */
 
-rootProject.name = "kotlin-lambda-example-jvm"
+rootProject.name = "kotlin-lambda-jvm-virtual-threads-vs-coroutines"
 
 pluginManagement {
     plugins {
-        id("org.jetbrains.kotlin.jvm") version "1.7.20" apply (false)
+        id("org.jetbrains.kotlin.jvm") version "1.9.22" apply (false)
     }
 }
-include(":products")
-project(":products").projectDir = file("software/products")
+include(":products-coroutines")
+project(":products-coroutines").projectDir = file("software/products-coroutines")
+include(":products-virtual-threads")
+project(":products-virtual-threads").projectDir = file("software/products-virtual-threads")
 include(":infrastructure")
 project(":infrastructure").projectDir = file("infrastructure")

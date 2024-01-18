@@ -9,7 +9,7 @@ import software.amazon.awscdk.services.lambda.Runtime
 import software.amazon.awscdk.services.logs.RetentionDays
 import software.constructs.Construct
 
-class InfrastructureJvmC1Arm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
+class InfrastructureJvmVirtualThreadsArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
         val functionId = "lambdaJvmC1Arm64"

@@ -1,7 +1,6 @@
 
 dependencies {
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.68")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
    // implementation("com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.12.0")
@@ -37,7 +36,7 @@ tasks.register<Zip>("packageDistribution") {
     into("lib") {
         from(configurations.runtimeClasspath)
     }
-    archiveFileName.set("function.zip")
+    archiveFileName.set("function-virtual-threads.zip")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
-    dependsOn(":products:build")
+    dependsOn(":products-virtual-threads:build")
 }
